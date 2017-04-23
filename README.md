@@ -53,12 +53,15 @@ Output Format
 -------------
 
 Output is a tab-delimited table with the following columns:
+```
 peptide id
 transporter family
 transporter substrate
 annotation score
+```
 
 If extended output format is selected using the -l parameter, then the output fields are:
+```
 peptide id
 transporter family
 transporter sub-family
@@ -68,6 +71,8 @@ transporter classification (tc) id
 trans-membrane helices
 trans-membrane length
 trans-membrane topology
+```
+
 
 Dependencies
 ------------
