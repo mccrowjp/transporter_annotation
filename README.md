@@ -5,7 +5,7 @@ Written by John P. McCrow (J. Craig Venter Institute, La Jolla, CA 92037).
 Adapted from previous work by Johnathan Badger (https://github.com/jhbadger/scripts)
 The database was originally developed by Qinghu Ren and Ian Paulsen, and is based on TransportDB (Qinghu Ren, et al., TransportDB: a comprehensive database resource for cytoplasmic membrane transport systems and outer membrane channels. Nucleic Acids Research 35: 274-279, 2007)
 
-### *Under active development. Check back later for a stable version...*
+### :bangbang: *Under active development. Check back later for a stable version...* :bangbang:
 
 Usage
 -----
