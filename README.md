@@ -18,6 +18,7 @@ Usage
 | trans_models.hmm | Pfam and TIGRfam HMMs |
 | trans_peps.fa | Peptides FASTA |
 
+
 ```
 find_transporters v0.1 (Apr 13, 2016)
 Membrane-bound transporter prediction
@@ -51,18 +52,30 @@ make
 Output Format
 -------------
 
-Output is a tab-delimited table:
-| peptide id | transporter family | transporter substrate | annotation score |
+Output is a tab-delimited table with the following columns:
+peptide id
+transporter family
+transporter substrate
+annotation score
 
-If extended output format is selected using the -l parameter, then the output fields are: | peptide id | transporter family | transporter sub-family | transporter substrate | annotation score | transporter classification (tc) id | trans-membrane helicies | trans-membrane length | trans-membrane topology |
+If extended output format is selected using the -l parameter, then the output fields are:
+peptide id
+transporter family
+transporter sub-family
+transporter substrate
+annotation score
+transporter classification (tc) id
+trans-membrane helices
+trans-membrane length
+trans-membrane topology
 
 Dependencies
 ------------
 
 * Python (https://www.python.org/downloads/)
 * Sqlite3 (https://sqlite.org/download.html)
-* Hmmer3 ()
-* NCBI-Blast ()
-* TMHMM ()
+* Hmmer3 (http://hmmer.org/download.html)
+* NCBI-Blast (https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+* TMHMM (http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?tmhmm)
 
 *The last 3 dependencies are not required to run the program, as long as output from all 3 are present.*

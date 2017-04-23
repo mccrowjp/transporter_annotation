@@ -21,10 +21,10 @@ weight_cog_positive = 1
 weight_cog_negative = -2
 weight_tc = 1
 weight_pfam = 1
-weight_tm_helicies = 1
+weight_tm_helices = 1
 
 # thresholds
-min_tm_helicies = 3
+min_tm_helices = 3
 max_blast_evalue = 1e-5
 max_hmm_evalue = 1e-4
 
@@ -72,7 +72,7 @@ class Orf_hits:
     pfam_id = ""
     pfam_evalue = 0
     tm_length = 0
-    tm_helicies = 0
+    tm_helices = 0
     tm_topo = ""
     blast_tc = ""
     blast_evalue = 0
@@ -275,7 +275,7 @@ def read_tmhmm(tmhmm_file):
         m2 = re.match('^\# (\S+) Number of predicted TMHs:\s+(\d+)', line)
         if m2:
             orf = dict_orf.get(m2.group(1), Orf_hits(m2.group(1)))
-            orf.tm_helicies = int(m2.group(2))
+            orf.tm_helices = int(m2.group(2))
             dict_orf[orf.id] = orf
 
         m3 = re.match('^(\S+)\t\S+\t(inside|outside|TMhelix)\t(.+)$', line)
@@ -305,7 +305,7 @@ def write_results(output_file, format_long):
             xprint("Writing stdout")
 
     if format_long:
-        print >>out_handle, "\t".join(['id', 'family', 'subfamily', 'substrate', 'score', 'tc', 'tm_helicies', 'tm_length', 'tm_topology'])
+        print >>out_handle, "\t".join(['id', 'family', 'subfamily', 'substrate', 'score', 'tc', 'tm_helices', 'tm_length', 'tm_topology'])
     else:
         print >>out_handle, "\t".join(['id', 'family', 'substrate', 'score'])
     
@@ -321,8 +321,8 @@ def write_results(output_file, format_long):
             orf.score += weight_tc
         if orf.pfam_id:
             orf.score += weight_pfam
-        if int(orf.tm_helicies) >= min_tm_helicies:
-            orf.score += weight_tm_helicies
+        if int(orf.tm_helices) >= min_tm_helices:
+            orf.score += weight_tm_helices
 
         if orf.score >= min_orf_score:
             str_tc = str_family = str_subfamily = str_substrate = ""
@@ -339,7 +339,7 @@ def write_results(output_file, format_long):
 
             if str_family:
                 if format_long:
-                    print >>out_handle, "\t".join([orf.id, str_family, str_subfamily, str_substrate, str(orf.score), str_tc, str(orf.tm_helicies), str(orf.tm_length), orf.tm_topo])
+                    print >>out_handle, "\t".join([orf.id, str_family, str_subfamily, str_substrate, str(orf.score), str_tc, str(orf.tm_helices), str(orf.tm_length), orf.tm_topo])
                 else:
                     if str_subfamily and str_subfamily != str_family:
                         str_family = str_family + " (" + str_subfamily + ")"
@@ -495,8 +495,8 @@ def main(argv):
             "Score not COG:  " + str(weight_cog_negative),
             "Score tc:       " + str(weight_tc),
             "Score Pfam:     " + str(weight_pfam),
-            "Score tm:       " + str(weight_tm_helicies),
-            "Min tm helices: " + str(min_tm_helicies),
+            "Score tm:       " + str(weight_tm_helices),
+            "Min tm helices: " + str(min_tm_helices),
             "Max Blast e:    " + str(max_blast_evalue),
             "Max HMM e:      " + str(max_hmm_evalue),
             "CPUs:           " + str(cpus),
